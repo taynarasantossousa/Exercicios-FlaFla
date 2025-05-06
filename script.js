@@ -33,7 +33,13 @@ const btns = [
     nome: "Ex. 4 - Positivo ou Negativo",
     func: () => {
       const valor = Number(prompt("Digite um número:"));
-      alert(valor > 0 ? "Positivo" : "Negativo");
+      if(valor == 0) {
+        alert(`${valor} = 0`)
+      }else if(valor > 0) {
+        alert(`${valor} é positivo!`)
+      }else {
+        alert(`${valor} é negativo!`)
+      }
     },
   },
   {
@@ -111,7 +117,7 @@ const btns = [
     nome: "Ex. 13 - 100 a 1",
     func: () => {
       let resultado = "";
-      for (let i = 101; i >= 1; i--) resultado += i + " ";
+      for (let i = 100; i >= 1; i--) resultado += i + " ";
       alert(resultado);
     },
   },
@@ -119,15 +125,19 @@ const btns = [
     nome: "Ex. 14 - Pares até 50",
     func: () => {
       let pares = [];
-      for (let i = 1; i <= 50; i++) if (i % 2 === 0) pares.push(i);
-      alert(pares.join(", "));
+      for (let i = 1; i <= 50; i++) {
+        if (i % 2 === 0)
+          pares.push(i);
+        alert(pares.join(", "));
+      }
     },
   },
   {
     nome: "Ex. 15 - Múltiplos de 5",
     func: () => {
       let multiplos = [];
-      for (let i = 1; i <= 100; i++) if (i % 5 === 0) multiplos.push(i);
+      for (let i = 1; i <= 100; i++) if (i % 5 === 0)
+         multiplos.push(i);
       alert(multiplos.join(", "));
     },
   },
@@ -137,7 +147,7 @@ const btns = [
       let pares = 0;
       for (let i = 0; i < 10; i++) {
         let num = Number(prompt(`Digite o número ${i + 1}:`));
-        if (num % 2 === 1) pares++;
+        if (num % 2 === 0) pares++;
       }
       alert(`Quantidade de pares: ${pares}`);
     },
@@ -145,7 +155,7 @@ const btns = [
   {
     nome: "Ex. 17 - Maior de 5 números",
     func: () => {
-      let maior = 0;
+      let maior = -Infinity;
       for (let i = 0; i < 5; i++) {
         let num = Number(prompt(`Digite o número ${i + 1}:`));
         if (num > maior) maior = num;
@@ -157,7 +167,7 @@ const btns = [
     nome: "Ex. 18 - Média de 5 Notas",
     func: () => {
       let soma = 0;
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 5; i++) {
         soma += Number(prompt(`Digite a nota ${i + 1}:`));
       }
       alert(`Média: ${(soma / 5).toFixed(2)}`);
@@ -194,7 +204,7 @@ const btns = [
       let nomes = [];
       for (let i = 0; i <= 5; i++) {
         let nome = prompt(`Digite o nome ${i + 1}:`);
-        if (nome.toLowerCase().startsWith("b")) nomes.push(nome);
+        if (nome.toLowerCase().startsWith("a")) nomes.push(nome);
       }
       alert(`Nomes com A: ${nomes.join(" - ")}`);
     },
